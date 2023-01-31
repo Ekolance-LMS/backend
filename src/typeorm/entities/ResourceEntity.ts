@@ -1,4 +1,7 @@
-import { BaseEntity, Column, Entity } from 'typeorm';
+import { Column, Entity, ManyToOne } from 'typeorm';
+import { BaseEntity } from './BaseEntity';
+import { ProgrammeEntity } from './ProgrammeEntity';
+import { TutorEntity } from './TutorEntity';
 
 export enum RESOURCE_TYPE {
   VIDEO = 'video',
@@ -20,5 +23,9 @@ export class ResourceEntity extends BaseEntity {
   @Column({ type: 'enum', enum: RESOURCE_TYPE, default: RESOURCE_TYPE.VIDEO })
   resourceType: RESOURCE_TYPE;
 
-  // Set up relations with programme, tutor
+  @ManyToOne(() => ProgrammeEntity, (programme) => programme.resources)
+  programme: ProgrammeEntity;
+
+  @ManyToOne(() => TutorEntity, (tutor) => tutor.resources)
+  tutor: TutorEntity;
 }
