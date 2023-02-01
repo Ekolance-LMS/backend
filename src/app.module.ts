@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AdminModule } from './admin/admin.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { StudentModule } from './student/student.module';
 import { TutorModule } from './tutor/tutor.module';
 import { AdminEntity } from './typeorm/entities/AdminEntity';
@@ -38,8 +40,9 @@ import { TutorEntity } from './typeorm/entities/TutorEntity';
     AdminModule,
     StudentModule,
     TutorModule,
+    TypeOrmModule.forFeature([ProgrammeEntity]),
   ],
-  controllers: [],
-  providers: [],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
