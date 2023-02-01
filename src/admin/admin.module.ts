@@ -10,9 +10,20 @@ import { HackathonsService } from './services/hackathons/hackathons.service';
 import { ProgrammesService } from './services/programmes/programmes.service';
 import { StudentsService } from './services/students/students.service';
 import { TutorsService } from './services/tutors/tutors.service';
+import { ProgrammeEntity } from 'src/typeorm/entities/ProgrammeEntity';
+import { AnnouncementEntity } from 'src/typeorm/entities/AnnouncementEntity';
+import { TutorEntity } from 'src/typeorm/entities/TutorEntity';
+import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([])],
+  imports: [
+    TypeOrmModule.forFeature([
+      ProgrammeEntity,
+      AnnouncementEntity,
+      TutorEntity,
+      StudentEntity,
+    ]),
+  ],
   controllers: [
     TutorsController,
     StudentsController,

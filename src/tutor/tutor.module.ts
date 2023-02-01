@@ -10,10 +10,22 @@ import { AnnouncementsService } from './services/announcements/announcements.ser
 import { ResourcesService } from './services/resources/resources.service';
 import { StudentsService } from './services/students/students.service';
 import { AssignmentsSubmissionController } from './controllers/assignments_submission/assignments_submission.controller';
-
+import { AssignmentEntity } from 'src/typeorm/entities/AssignmentEntity';
+import { AssignmentSubmissionEntity } from 'src/typeorm/entities/AssignmentSubmissionEntity';
+import { ResourceEntity } from 'src/typeorm/entities/ResourceEntity';
+import { AnnouncementEntity } from 'src/typeorm/entities/AnnouncementEntity';
+import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([])],
+  imports: [
+    TypeOrmModule.forFeature([
+      AssignmentEntity,
+      AssignmentSubmissionEntity,
+      ResourceEntity,
+      AnnouncementEntity,
+      StudentEntity,
+    ]),
+  ],
   controllers: [
     AssignmentsController,
     AssignmentsSubmissionController,
