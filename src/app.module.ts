@@ -1,6 +1,10 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import {
+  TypeOrmModule,
+  TypeOrmModuleAsyncOptions,
+  TypeOrmModuleOptions,
+} from '@nestjs/typeorm';
 import { AdminModule } from './admin/admin.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -18,24 +22,30 @@ import { TutorEntity } from './typeorm/entities/TutorEntity';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      username: 'root',
-      password: '',
-      port: 3306,
-      database: 'ekolance_lms',
-      entities: [
-        AdminEntity,
-        AnnouncementEntity,
-        AssignmentEntity,
-        AssignmentSubmissionEntity,
-        ProgrammeEntity,
-        ResourceEntity,
-        StudentEntity,
-        TutorEntity,
-      ],
-      synchronize: true,
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        type: configService.get<TypeOrmModuleOptions>('DB_TYPE', {
+          infer: true,
+        }),
+        host: configService.get<string>('DB_HOST'),
+        username: configService.get<string>('DB_USER'),
+        password: configService.get<string>('DB_PASSWORD'),
+        port: configService.get<string>('DB_PORT'),
+        database: configService.get<string>('DB_NAME'),
+        entities: [
+          AdminEntity,
+          AnnouncementEntity,
+          AssignmentEntity,
+          AssignmentSubmissionEntity,
+          ProgrammeEntity,
+          ResourceEntity,
+          StudentEntity,
+          TutorEntity,
+        ],
+        synchronize: true,
+      }),
+      inject: [ConfigService],
     }),
     AdminModule,
     StudentModule,
