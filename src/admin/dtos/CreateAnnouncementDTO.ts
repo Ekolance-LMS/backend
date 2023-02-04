@@ -1,21 +1,27 @@
-import { IsEmpty, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import {
+  IsEmpty,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 export class CreateAnnouncementDTO {
   @IsString()
+  @IsNotEmpty()
   title: string;
 
   @IsString()
+  @IsNotEmpty()
   content: string;
 
   @IsNumber()
   @IsNotEmpty()
   programmeId: number;
 
-  @IsNumber()
-  @IsEmpty()
+  @IsOptional()
   tutorId: number;
 
-  @IsNumber()
-  @IsEmpty()
+  @IsOptional()
   adminId: number;
 }
