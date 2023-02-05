@@ -1,4 +1,5 @@
-import { Column, Entity, ManyToOne } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
+import { AssignmentSubmissionEntity } from './AssignmentSubmissionEntity';
 import { BaseEntity } from './BaseEntity';
 import { ProgrammeEntity } from './ProgrammeEntity';
 import { TutorEntity } from './TutorEntity';
@@ -16,4 +17,10 @@ export class AssignmentEntity extends BaseEntity {
 
   @ManyToOne(() => ProgrammeEntity, (programme) => programme.assignments)
   programme: ProgrammeEntity;
+
+  @OneToMany(
+    () => AssignmentSubmissionEntity,
+    (assignmentSubmission) => assignmentSubmission.assignment,
+  )
+  assignmentSubmissions: AssignmentSubmissionEntity[];
 }

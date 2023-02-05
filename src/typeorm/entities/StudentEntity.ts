@@ -1,6 +1,7 @@
-import { Column, Entity, OneToMany } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, OneToMany } from 'typeorm';
 import { AssignmentSubmissionEntity } from './AssignmentSubmissionEntity';
 import { BaseEntity } from './BaseEntity';
+import { ProgrammeApplicationEntity } from './ProgrammeApplicationEntity';
 import { ProgrammeEntity } from './ProgrammeEntity';
 
 @Entity('students')
@@ -17,6 +18,13 @@ export class StudentEntity extends BaseEntity {
   )
   submittedAssignments: AssignmentSubmissionEntity[];
 
-  @OneToMany(() => ProgrammeEntity, (programme) => programme.student)
+  @OneToMany(
+    () => ProgrammeApplicationEntity,
+    (application) => application.student,
+  )
+  applications: ProgrammeApplicationEntity[];
+
+  @ManyToMany(() => ProgrammeEntity)
+  @JoinTable()
   programmes: ProgrammeEntity[];
 }

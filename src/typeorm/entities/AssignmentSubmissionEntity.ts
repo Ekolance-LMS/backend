@@ -1,4 +1,5 @@
 import { Column, Entity, ManyToOne } from 'typeorm';
+import { AssignmentEntity } from './AssignmentEntity';
 import { BaseEntity } from './BaseEntity';
 import { StudentEntity } from './StudentEntity';
 
@@ -12,6 +13,12 @@ export class AssignmentSubmissionEntity extends BaseEntity {
 
   @ManyToOne(() => StudentEntity, (student) => student.submittedAssignments)
   student: StudentEntity;
+
+  @ManyToOne(
+    () => AssignmentEntity,
+    (assignment) => assignment.assignmentSubmissions,
+  )
+  assignment: AssignmentEntity;
 
   // Set up relations with student, programme/cohort
 }

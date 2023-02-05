@@ -17,8 +17,10 @@ export class TutorEntity extends BaseEntity {
   @OneToMany(() => ResourceEntity, (resources) => resources.tutor)
   resources: ResourceEntity[];
 
-  @OneToMany(() => ProgrammeEntity, (programme) => programme.tutor)
-  programmes: ProgrammeEntity[];
+  @ManyToOne(() => ProgrammeEntity, (programme) => programme.tutors, {
+    nullable: true,
+  })
+  programme: ProgrammeEntity;
 
   @OneToMany(() => AssignmentEntity, (assignment) => assignment.tutor)
   assignments: AssignmentEntity[];
