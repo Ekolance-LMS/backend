@@ -1,10 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import {
-  TypeOrmModule,
-  TypeOrmModuleAsyncOptions,
-  TypeOrmModuleOptions,
-} from '@nestjs/typeorm';
+import { RouterModule } from '@nestjs/core';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { AdminModule } from './admin/admin.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -22,6 +19,12 @@ import { TutorEntity } from './typeorm/entities/TutorEntity';
 
 @Module({
   imports: [
+    RouterModule.register([
+      { path: 'admin', module: AdminModule },
+      { path: 'student', module: StudentModule },
+      { path: 'tutor', module: TutorModule },
+    ]),
+
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

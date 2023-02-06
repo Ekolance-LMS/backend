@@ -9,9 +9,9 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiOkResponse } from '@nestjs/swagger';
-import { CreateAnnouncementDTO } from 'src/admin/dtos/CreateAnnouncementDTO';
-import { UpdateAnnouncementDTO } from 'src/admin/dtos/UpdateAnnouncementDTO';
-import { AnnouncementsService } from 'src/admin/services/announcements/announcements.service';
+import { CreateAnnouncementDTO } from 'src/tutor/dtos/CreateAnnouncementDTO';
+import { UpdateAnnouncementDTO } from 'src/tutor/dtos/UpdateAnnouncementDTO';
+import { AnnouncementsService } from 'src/tutor/services/announcements/announcements.service';
 import { AnnouncementEntity } from 'src/typeorm/entities/AnnouncementEntity';
 
 @Controller('announcements')
