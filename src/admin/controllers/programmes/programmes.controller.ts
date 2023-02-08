@@ -26,6 +26,7 @@ export class ProgrammesController {
 
   @Post('create')
   async createProgramme(@Body() createProgrammeDTO: CreateProgrammeDTO) {
+    // console.log(createProgrammeDTO);
     return await this.ProgrammeService.createProgramme({
       ...createProgrammeDTO,
     });

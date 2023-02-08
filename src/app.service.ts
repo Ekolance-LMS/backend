@@ -10,9 +10,10 @@ export class AppService {
     private programmeRepository: Repository<ProgrammeEntity>,
   ) {}
 
-  private programmes = this.programmeRepository.find();
+  // private programmes = this.programmeRepository.find();
 
-  homePage() {
-    return { programmes: this.programmes };
+  async homePage() {
+    const fetchedProgrammes = await this.programmeRepository.find();
+    return { programmes: fetchedProgrammes };
   }
 }
