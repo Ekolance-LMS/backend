@@ -1,4 +1,12 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { ResourcesService } from 'src/student/services/resources/resources.service';
 
 @Controller('resources')
-export class ResourcesController {}
+export class ResourcesController {
+  constructor(private resourceService: ResourcesService) {}
+
+  @Get('programme/:id')
+  getAllResources(@Param('id', ParseIntPipe) id: number) {
+    this.resourceService.getAllResources(id);
+  }
+}

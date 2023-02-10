@@ -10,7 +10,7 @@ export class AnnouncementsService {
     private announcementRepository: Repository<AnnouncementEntity>,
   ) {}
 
-  getAnnouncementsForStudent(){
-    
+  getAnnouncementsForStudent() {
+    return this.announcementRepository.find();
   }
 }
