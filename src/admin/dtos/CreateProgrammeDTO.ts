@@ -12,10 +12,12 @@ import {
 import { ProgrammeStatus } from 'src/utils/enums';
 
 export class CreateProgrammeDTO {
+  @ApiProperty()
   @IsString()
   @IsNotEmpty()
   title: string;
 
+  @ApiProperty()
   @IsString()
   @IsNotEmpty()
   description: string;
@@ -24,14 +26,17 @@ export class CreateProgrammeDTO {
   // @IsNotEmpty()
   // poolAddress: string;
 
+  @ApiProperty()
   @IsUrl()
   @IsNotEmpty()
   linkToFlier: string;
 
+  @ApiProperty()
   @IsDate()
   @Type(() => Date)
   applicationDeadline: Date;
 
+  @ApiProperty()
   @IsEnum(ProgrammeStatus)
   status: ProgrammeStatus;
 

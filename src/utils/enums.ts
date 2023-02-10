@@ -9,3 +9,10 @@ export enum PROGRAMME_APPLICATION_STATUS {
   ACCEPTED = 'accepted',
   REJECTED = 'rejected',
 }
+
+export enum RESOURCE_TYPE {
+  VIDEO = 'video',
+  DOCUMENT = 'document',
+  REPOSITORY = 'repository',
+  WEBSITE = 'website',
+}

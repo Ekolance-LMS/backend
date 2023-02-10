@@ -1,4 +1,4 @@
-import { ProgrammeStatus } from './enums';
+import { ProgrammeStatus, RESOURCE_TYPE } from './enums';
 
 export type CreateAnnouncementParams = {
   title: string;
@@ -41,3 +41,31 @@ export type UpdateStudentParams = {
 export type CreateAssignmentSubmissionParams = { link: string };
 
 export type UpdateAssignmentSubmissionParams = { link: string };
+
+export type CreateResourceParams = {
+  title: string;
+  description: string;
+  link: string;
+  tutorId: number;
+  resourceType: RESOURCE_TYPE;
+};
+
+export type UpdateResourceParams = {
+  title: string;
+  description: string;
+  link: string;
+  resourceType: RESOURCE_TYPE;
+};
+
+export type CreateAssignmentParams = {
+  deadline: Date;
+  link: string;
+  tutorId: number;
+  programmeId: number;
+};
+
+export type UpdateAssignmentParams = {
+  deadline: Date;
+  link: string;
+  programmeId: number;
+};

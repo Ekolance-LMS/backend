@@ -1,14 +1,9 @@
+import { RESOURCE_TYPE } from 'src/utils/enums';
 import { Column, Entity, ManyToOne } from 'typeorm';
 import { BaseEntity } from './BaseEntity';
 import { ProgrammeEntity } from './ProgrammeEntity';
 import { TutorEntity } from './TutorEntity';
 
-export enum RESOURCE_TYPE {
-  VIDEO = 'video',
-  DOCUMENT = 'document',
-  REPOSITORY = 'repository',
-  WEBSITE = 'website',
-}
 @Entity('resources')
 export class ResourceEntity extends BaseEntity {
   @Column()
