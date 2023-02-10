@@ -55,7 +55,7 @@ import { TutorEntity } from './typeorm/entities/TutorEntity';
     AdminModule,
     StudentModule,
     TutorModule,
-    TypeOrmModule.forFeature([ProgrammeEntity]),
+    TypeOrmModule.forFeature([ProgrammeEntity,StudentEntity]),
   ],
   controllers: [AppController],
   providers: [AppService],

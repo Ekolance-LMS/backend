@@ -3,6 +3,7 @@ import { Type } from 'class-transformer';
 import {
   IsDate,
   IsEnum,
+  IsEthereumAddress,
   IsNotEmpty,
   IsOptional,
   IsString,
@@ -18,6 +19,10 @@ export class CreateProgrammeDTO {
   @IsString()
   @IsNotEmpty()
   description: string;
+
+  // @IsEthereumAddress()
+  // @IsNotEmpty()
+  // poolAddress: string;
 
   @IsUrl()
   @IsNotEmpty()

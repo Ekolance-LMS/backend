@@ -14,6 +14,9 @@ export class ProgrammeEntity extends BaseEntity {
   @Column()
   title: string;
 
+  @Column({ unique: true, nullable: false })
+  poolAddress: string;
+
   @Column()
   description: string;
 

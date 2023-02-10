@@ -3,3 +3,9 @@ export enum ProgrammeStatus {
   ONGOING = 'ongoing',
   ENDED = 'ended',
 }
+
+export enum PROGRAMME_APPLICATION_STATUS {
+  PENDING = 'pending',
+  ACCEPTED = 'accepted',
+  REJECTED = 'rejected',
+}

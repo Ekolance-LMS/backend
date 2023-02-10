@@ -28,3 +28,16 @@ export type UpdateProgrammeParams = {
   applicationDeadline: Date;
   status: ProgrammeStatus;
 };
+
+export type CreateStudentParams = {
+  walletAddress: string;
+};
+
+export type UpdateStudentParams = {
+  fullName: string;
+  email: string;
+};
+
+export type CreateAssignmentSubmissionParams = { link: string };
+
+export type UpdateAssignmentSubmissionParams = { link: string };

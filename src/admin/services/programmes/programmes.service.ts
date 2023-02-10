@@ -16,8 +16,11 @@ export class ProgrammesService {
   }
 
   createProgramme(createProgrammeDetails: CreateProgrammeParams) {
+    //create or get ekoStablePool and return address
+    const poolAddress = '0x95222290dd7278aa3ddd389cc1e1d165cc4bafe5';
     const newProgramme = this.ProgrammeRepository.create({
       ...createProgrammeDetails,
+      poolAddress: poolAddress,
     });
     return this.ProgrammeRepository.save(newProgramme);
   }

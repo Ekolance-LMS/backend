@@ -6,10 +6,13 @@ import { ProgrammeEntity } from './ProgrammeEntity';
 
 @Entity('students')
 export class StudentEntity extends BaseEntity {
-  @Column({ unique: true, length: 256 })
+  @Column({ unique: true, length: 50 })
   walletAddress: string;
 
-  @Column()
+  @Column({ unique: true, nullable: true, type: 'bigint' })
+  nonce: number;
+
+  @Column({ unique: true, nullable: true })
   fullName: string;
 
   @OneToMany(
