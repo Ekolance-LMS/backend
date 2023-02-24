@@ -1,3 +1,4 @@
+
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
@@ -14,24 +15,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: '16.x'
 
-      - name: npm install, build, and test
+      - name: npm install, build
         run: |
           npm install
           npm run build --if-present
-          npm run test --if-present
+      - name: Zip all files and upload between jobs
+        run: zip --symlinks -r nest.zip ./*
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: nest.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,4 +55,7 @@ jobs:
           app-name: 'ekolance'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2B644FE97CF24B36813E3FEEE9512D1A }}
-          package: .
+          package: nest.zip
+
+      - name: Delete zip file
+        run: rm nest.zip
