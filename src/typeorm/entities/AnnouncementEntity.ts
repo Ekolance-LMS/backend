@@ -9,7 +9,7 @@ export class AnnouncementEntity extends BaseEntity {
   @Column()
   title: string;
 
-  @Column({ type: 'tinytext' })
+  @Column({ type: 'text' })
   content: string;
 
   @ManyToOne(() => ProgrammeEntity, (programme) => programme.announcements)
