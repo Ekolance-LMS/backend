@@ -7,6 +7,10 @@ import { Repository } from 'typeorm';
 export class StudentsService {
   constructor(
     @InjectRepository(StudentEntity)
-    private announcementRepository: Repository<StudentEntity>,
+    private studentRepository: Repository<StudentEntity>,
   ) {}
+
+  getAllStudents(programmeId: number) {
+    //Get students by programme/cohort
+  }
 }
