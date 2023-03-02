@@ -11,8 +11,17 @@ export class TutorEntity extends BaseEntity {
   @Column({ unique: true, length: 256 })
   walletAddress: string;
 
-  @Column()
+  @Column({nullable: true })
   fullName: string;
+
+  @Column({nullable: true })
+  email: string;
+
+  @Column({nullable: true })
+  Programme: string;
+
+  @Column({nullable: true })
+  Cohort: string;
 
   @OneToMany(() => ResourceEntity, (resources) => resources.tutor)
   resources: ResourceEntity[];

@@ -15,6 +15,9 @@ export class StudentEntity extends BaseEntity {
   @Column({ unique: true, nullable: true })
   fullName: string;
 
+  @Column({ unique: true, nullable: true })
+  email: string;
+
   @OneToMany(
     () => AssignmentSubmissionEntity,
     (submittedAssignment) => submittedAssignment.student,
