@@ -7,9 +7,9 @@ export class UpdateTutorDTO {
   @IsString()
   fullName: string;
 
-  @IsString()
-  Programme: string;
+  // @IsString()
+  // Programme: string;
 
-  @IsString()
-  Cohort: string;
+  // @IsString()
+  // Cohort: string;
 }

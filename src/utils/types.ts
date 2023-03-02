@@ -69,3 +69,7 @@ export type UpdateAssignmentParams = {
   link: string;
   programmeId: number;
 };
+
+export type CreateTutorParams = { walletAddress: string };
+
+export type UpdateTutorParams = { fullName: string; email: string };
