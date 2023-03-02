@@ -14,7 +14,9 @@ export class AssignmentsService {
     private assignmentRepository: Repository<AssignmentEntity>,
   ) {}
   getAllAssignments() {
-    return this.assignmentRepository.find();
+    return this.assignmentRepository.find({
+      relations: { assignmentSubmissions: true },
+    });
   }
 
   createAssignment(createAssignmentDetails: CreateAssignmentParams) {

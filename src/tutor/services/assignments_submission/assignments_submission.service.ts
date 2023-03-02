@@ -11,12 +11,6 @@ export class AssignmentsSubmissionService {
   ) {}
 
   getSubmittedAssignments(assignmentId: number) {
-    // const submittedAssignments = this.assignmentSubmissionRepository.find({
-    //   where: {
-    //     assignmentId: assignmentId,
-    //   },
-    // });
-
     const submittedAssignments = this.assignmentSubmissionRepository
       .createQueryBuilder('submissions')
       .select('assignment')

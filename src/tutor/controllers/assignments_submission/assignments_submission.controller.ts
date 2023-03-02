@@ -7,7 +7,7 @@ export class AssignmentsSubmissionController {
     private assignmentsSubmissionService: AssignmentsSubmissionService,
   ) {}
 
-  @Get(':assignmentId')
+  @Get('submittedAssignments/:assignmentId')
   getSubmissions(@Param('assignmentId', ParseIntPipe) assignmentId: number) {
     this.assignmentsSubmissionService.getSubmittedAssignments(assignmentId);
   }
