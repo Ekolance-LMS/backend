@@ -13,9 +13,4 @@ export class UpdateAssignmentDTO {
   @IsDate()
   @Type(() => Date)
   deadline: Date;
-
-  @ApiProperty()
-  @IsNotEmpty()
-  @IsNumber()
-  programmeId: number;
 }

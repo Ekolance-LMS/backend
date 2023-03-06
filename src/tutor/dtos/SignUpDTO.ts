@@ -1,4 +1,4 @@
-import { WalletAuthenticator } from '@thirdweb-dev/sdk';
+// import { WalletAuthenticator } from '@thirdweb-dev/sdk';
 import { IsEmail, IsEthereumAddress, IsNotEmpty } from 'class-validator';
 import { CreateTutorDTO } from 'src/admin/dtos/CreateTutorDTO';
 

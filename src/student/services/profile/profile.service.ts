@@ -31,7 +31,7 @@ export class ProfileService {
 
   loginStudent(publicAddress: string) {
     //check if user is registered then login else register
-
+    // validate if address is in db->elsegoto signup page
     const student = this.studentRepository.findOne({
       where: { walletAddress: publicAddress },
     });

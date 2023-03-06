@@ -1,13 +1,11 @@
 // import { ApiProperty } from "@nestjs/swagger";
-import { IsEmail, IsSemVer, IsString } from "class-validator";
+import { IsString } from "class-validator";
+import { ProfileService } from "src/tutor/services/profile/profile.service";
 
 export class LoginTutorDto {
-    @IsEmail()
-    email: string;
 
     @IsString()
     walletAddress: string; 
     // get address from sign up
-
 }
     

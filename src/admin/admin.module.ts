@@ -4,7 +4,7 @@ import { TutorsController } from './controllers/tutors/tutors.controller';
 import { StudentsController } from './controllers/students/students.controller';
 import { ProgrammesController } from './controllers/programmes/programmes.controller';
 import { AnnouncementsController } from './controllers/announcements/announcements.controller';
-import { HackathonsController } from './controllers/hackathons/hackathons.controller';
+import { HackathonController } from './controllers/hackathons/hackathons.controller';
 import { AnnouncementsService } from './services/announcements/announcements.service';
 import { HackathonsService } from './services/hackathons/hackathons.service';
 import { ProgrammesService } from './services/programmes/programmes.service';
@@ -14,6 +14,7 @@ import { ProgrammeEntity } from 'src/typeorm/entities/ProgrammeEntity';
 import { AnnouncementEntity } from 'src/typeorm/entities/AnnouncementEntity';
 import { TutorEntity } from 'src/typeorm/entities/TutorEntity';
 import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
+import { HackathonsEntity } from 'src/typeorm/entities/HackathonsEntity';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
       AnnouncementEntity,
       TutorEntity,
       StudentEntity,
+      HackathonsEntity,
     ]),
   ],
   controllers: [
@@ -29,7 +31,7 @@ import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
     StudentsController,
     ProgrammesController,
     AnnouncementsController,
-    HackathonsController,
+    HackathonController,
   ],
   providers: [
     AnnouncementsService,

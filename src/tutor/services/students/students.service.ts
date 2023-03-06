@@ -12,5 +12,6 @@ export class StudentsService {
 
   getAllStudents(programmeId: number) {
     //Get students by programme/cohort
+    return this.studentRepository.find()
   }
 }

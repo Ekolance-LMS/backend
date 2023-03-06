@@ -11,11 +11,13 @@ import { AdminEntity } from './typeorm/entities/AdminEntity';
 import { AnnouncementEntity } from './typeorm/entities/AnnouncementEntity';
 import { AssignmentEntity } from './typeorm/entities/AssignmentEntity';
 import { AssignmentSubmissionEntity } from './typeorm/entities/AssignmentSubmissionEntity';
+import { HackathonsEntity } from './typeorm/entities/HackathonsEntity';
 import { ProgrammeApplicationEntity } from './typeorm/entities/ProgrammeApplicationEntity';
 import { ProgrammeEntity } from './typeorm/entities/ProgrammeEntity';
 import { ResourceEntity } from './typeorm/entities/ResourceEntity';
 import { StudentEntity } from './typeorm/entities/StudentEntity';
 import { TutorEntity } from './typeorm/entities/TutorEntity';
+//import { HackathonsEntity } from './typeorm/entities/HackathonsEntity';
 
 @Module({
   imports: [
@@ -46,6 +48,7 @@ import { TutorEntity } from './typeorm/entities/TutorEntity';
           ResourceEntity,
           StudentEntity,
           TutorEntity,
+          HackathonsEntity,
           ProgrammeApplicationEntity,
         ],
         synchronize: true,

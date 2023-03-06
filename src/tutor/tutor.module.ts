@@ -9,12 +9,15 @@ import { AssignmentsService } from './services/assignments/assignments.service';
 import { AnnouncementsService } from './services/announcements/announcements.service';
 import { ResourcesService } from './services/resources/resources.service';
 import { StudentsService } from './services/students/students.service';
+import { ProfileService } from './services/profile/profile.service'
 import { AssignmentsSubmissionController } from './controllers/assignments_submission/assignments_submission.controller';
 import { AssignmentEntity } from 'src/typeorm/entities/AssignmentEntity';
 import { AssignmentSubmissionEntity } from 'src/typeorm/entities/AssignmentSubmissionEntity';
 import { ResourceEntity } from 'src/typeorm/entities/ResourceEntity';
 import { AnnouncementEntity } from 'src/typeorm/entities/AnnouncementEntity';
 import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
+import { ProfileController } from './controllers/profile/profile.controller';
+import { TutorEntity } from 'src/typeorm/entities/TutorEntity';
 
 @Module({
   imports: [
@@ -24,6 +27,7 @@ import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
       ResourceEntity,
       AnnouncementEntity,
       StudentEntity,
+      TutorEntity,
     ]),
   ],
   controllers: [
@@ -32,6 +36,7 @@ import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
     ResourcesController,
     StudentsController,
     AnnouncementsController,
+    ProfileController,
   ],
   providers: [
     AssignmentsSubmissionService,
@@ -39,6 +44,7 @@ import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
     AnnouncementsService,
     ResourcesService,
     StudentsService,
+    ProfileService,
   ],
 })
 export class TutorModule {}

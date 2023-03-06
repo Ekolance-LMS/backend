@@ -10,7 +10,7 @@ import {
     Put,
   } from '@nestjs/common';
   import { ApiOkResponse } from '@nestjs/swagger';
-import { getJsonWalletAddress } from 'ethers/lib/utils';
+  import { getJsonWalletAddress } from 'ethers/lib/utils';
   import { CreateTutorDTO } from 'src/admin/dtos/CreateTutorDTO';
   import { UpdateTutorDTO } from 'src/admin/dtos/UpdateTutorDTO';
   import { TutorsService } from 'src/admin/services/tutors/tutors.service';
@@ -48,12 +48,6 @@ export class TutorsController {
     @Delete('delete/:id')
     deleteTutor(@Param('id', ParseIntPipe) id: number) {
       this.tutorService.delete_tutor(id);
-    }
-
-    @Post('loginTutor')
-    @HttpCode(200)
-    login_tutor(@Param('walletAddress') walletAddress: string){
-        this.tutorService.loginTutor(walletAddress);
     }
 
 }

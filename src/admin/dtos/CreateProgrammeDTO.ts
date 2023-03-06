@@ -22,9 +22,9 @@ export class CreateProgrammeDTO {
   @IsNotEmpty()
   description: string;
 
-  // @IsEthereumAddress()
-  // @IsNotEmpty()
-  // poolAddress: string;
+  @IsEthereumAddress()
+  @IsNotEmpty()
+  poolAddress: string;
 
   @ApiProperty()
   @IsUrl()

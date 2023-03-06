@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
+import { BeforeInsert, Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 import { AdminEntity } from './AdminEntity';
 import { AnnouncementEntity } from './AnnouncementEntity';
 import { AssignmentEntity } from './AssignmentEntity';
@@ -14,8 +14,13 @@ export class TutorEntity extends BaseEntity {
   @Column({nullable: true })
   fullName: string;
 
-  @Column({nullable: true })
+  @Column({nullable: true, unique: true })
   email: string;
+  
+  // @BeforeInsert()
+  // emailTolowercase() {
+  //   this.email = this.email.toLowerCase();
+  // }
 
   @Column({nullable: true })
   Programme: string;
