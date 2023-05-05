@@ -9,6 +9,7 @@ export class StudentsService {
   constructor(
     @InjectRepository(StudentEntity)
     private studentRepository: Repository<StudentEntity>,
+    @InjectRepository(ProgrammeEntity)
     private programmeRepository: Repository<ProgrammeEntity>,
   ) {}
 

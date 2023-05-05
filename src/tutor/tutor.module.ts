@@ -15,6 +15,7 @@ import { AssignmentSubmissionEntity } from 'src/typeorm/entities/AssignmentSubmi
 import { ResourceEntity } from 'src/typeorm/entities/ResourceEntity';
 import { AnnouncementEntity } from 'src/typeorm/entities/AnnouncementEntity';
 import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
+import { ProgrammeEntity } from 'src/typeorm/entities/ProgrammeEntity';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { StudentEntity } from 'src/typeorm/entities/StudentEntity';
       ResourceEntity,
       AnnouncementEntity,
       StudentEntity,
+      ProgrammeEntity,
     ]),
   ],
   controllers: [
