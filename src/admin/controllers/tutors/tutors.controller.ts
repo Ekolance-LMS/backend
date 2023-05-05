@@ -13,7 +13,7 @@ import { ApiOkResponse } from '@nestjs/swagger';
 import { CreateTutorDTO } from 'src/admin/dtos/CreateTutorDTO';
 import { UpdateTutorDTO } from 'src/admin/dtos/UpdateTutorDTO';
 import { TutorsService } from 'src/admin/services/tutors/tutors.service';
-import { TutorEntity } from 'src/typeorm/entities/tutorEntity';
+import { TutorEntity } from '../../../typeorm/entities/TutorEntity';
 
 @Controller('tutors')
 export class TutorsController {
